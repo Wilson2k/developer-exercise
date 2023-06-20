@@ -19,7 +19,11 @@ class Exercise
     fib = Hash.new {|hash, key| hash[key] = key < 2 ? key : hash[key-1] + hash[key-2] }
     # Set nth fib num as limit for summing even fib nums
     limit = fib[nth]
-    # 4 * (f1 + f2) is formula for next even val of fib sequence
+    # If no even nums in sequence up to nth fib number
+    if limit < 2
+      return 0;
+    end
+    # 4 * (f1 + f2) is formula for next even value of fib sequence
     fib1 = 0
     fib2 = 2
     sum = fib1 + fib2
